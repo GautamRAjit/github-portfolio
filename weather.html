@@ -1,0 +1,213 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Weather Case Study</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/gautam-radhakrishnan-ajit-617988100/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/GautamRAjit" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Machine Learning with Python: Weather Conditions and Climate Change with ClimateWins</h1>
+								</header>
+								<span class="image fit"><img src="images/weather1.jpg" alt="" /></span>
+								<header><h2>Overview</h2></header>
+								<p>Climate Wins, a fictional company, is interested in using machine learning to study the weather patterns in Europe. As a data analyst working for the company, my job is to study the data and come up with accurate predictions for the near future, in terms of the weather being pleasant or not, based on analyzing past weather data using state-of-the-art machine learning algorithms. The primary purpose of this project was to showcase my skills in adopting machine learning techniques to potentially solve a Climate Change situation. This project was done in association with CareerFoundry, as a requirement to finish its Machine Learning module. </p>								
+								<header><h2>Tools & Skills</h2></header>
+								<p>This project was done entirely using Jupyter Notebooks using python libraries numpy, pandas, matplotlib (for data visualization) and other popular Deep Learning frameworks including but not limited to CNNs (Convoluted Neural Networks), GANs (Generative Adverserial Networks).</p>
+								<header><h2>Data</h2></header>
+								<p>This data set based on weather observations from 18 different weather stations across Europe, which contain data ranging from the late 1800s to 2022. Recordings exist for
+									almost every day with values such as temperature, wind speed, snow, global radiation, and more. This data is collected by the <a href="https://www.ecad.eu/">European Climate Assessment & Data Set project</a>.</p>
+								<header><h2>Workflow</h2></header>
+								<span class="image fit"><img src="images/flowchart_weather.PNG" alt="" /></span>
+								<header><h2>Thought Experiments</h2></header>
+								<p>Here are some ideas we can consider in the future.</p>
+								<span class="image fit"><img src="images/thought_exp.PNG" alt="" /></span>
+								<header><h2>Thought Experiment 1 : Random Forest & Variable Importance</h2></header>
+								<ul>
+									<li>Since we would most likely train on millions of observations when the models are scaled, it is crucial to keep the training costs low without compromising the efficiency of this operation.</li>
+									<li>By training random forest models exclusively on data specific to extreme weather conditions, we would be able to narrow down the list of features to its most important ones, helping us get rid of redundant features and making training faster.</li>
+									<li>This could also help human experts discover relationships between such features, if any.</li>
+								</ul>
+								<div class="row">
+									<div class="column">
+										<img src="images/variable_imp1.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/variable_imp2.PNG" style="width:100%">
+									</div>
+								</div>
+								<ul>
+									<li>Ranking weather stations based on their importance to a Random Forest model!</li>
+									<li>Metrics on temperature, radiation, sunshine and precipitation all rank high among the most important stations!</li>
+								</ul>
+								<header><h2>Thought Experiment 2 : CNNs & RNNs on how cloud patterns emerge over time</h2></header>
+								<ul>
+									<li>Since CNNs excel at image data, they can be used to track cloud movements and identify emerging patterns, potentially saving lives from disastrous cyclones, tsunamis and similar events.</li>
+									<li>Data can be collected from social media accounts (for instance, images on Instagram) along with their location, and make short-term predictions as to whether that place is safe for travel</li>
+									<li>The idea mentioned above could be taken a step further by feeding the spatial features extracted by the CNN layers to a model more capable of studying patterns over time, like an RNN or a LSTM model (forecasting by hour, day, month, etc). </li>
+								</ul>
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column">
+    <img src="images/conf_mat1.PNG" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/mod_param.PNG" alt="Forest" style="width:100%">
+  </div>
+</div>
+
+</body>
+</html>
+
+								<ul>
+									<li>On a trained CNN, the “pleasantness” of the weather was correctly classified for most stations, with an overall accuracy of 82.76%</li>
+									<li>The set of optimized hyperparameters which brought the accuracy to its maximum value (among the subset of values considered)</li>
+								</ul>
+								<header><h2>Thought Experiment 3 : GAN and Radar Recognition</h2></header>
+								<ul>
+									<li>With respect to the second thought experiment, RNNs can capture temporal patterns. But often, there could be gaps in the data. For instance, maybe an hour’s data might be missing in the training set.</li>
+									<li>GANs could come in handy as the generator component could create synthetic images that resemble the missing weather condition.</li>
+									<li>This would, in turn, make the training of the CNN+RNN models stronger and the final output would be more closer to the real world. </li>
+									<li>Such situations could be diverse, ranging from the formation of cyclones to the intensity of forest fires.</li>
+								</ul>
+								<p><span class="image left"><img src="images/conf_mat2.PNG"></span>Less likely to overfit as the validation accuracy is close to the training accuracy, generalizing well on unseen data!</p>
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Metric</th>
+												<th>Value</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Train Accuracy</td>
+												<td>84.93%</td>
+											</tr>
+											<tr>
+												<td>Train Loss</td>
+												<td>0.0585</td>
+											</tr>
+											<tr>
+												<td>Validation Accuracy</td>
+												<td>81.69%</td>
+											</tr>
+											<tr>
+												<td>Validation Loss</td>
+												<td>0.0865</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+								<header><h2>Generative Adversarial Networks (GAN) and synthetic image generation</h2></header>
+								<p>Certain weather phenomena are so rare that there is insufficient image data to train the models well. To mimic and create images closer to reality for such cases, GAN models could come in handy as they are well known for generating synthetic images based on human input. The following are 3 examples of synthetic images generated by a trained GAN, indicating ‘cloudy’, ‘sunny’ & ‘cloudy’ climate respectively.</p>
+								<div class="box alt">
+									<div class="row gtr-50 gtr-uniform">
+										<div class="col-4"><span class="image fit"><img src="images/img1.PNG" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/img2.PNG" alt="" /></span></div>
+										<div class="col-4"><span class="image fit"><img src="images/img3.PNG" alt="" /></span></div>
+									</div>
+								</div>																								
+								<header><h2>Recommendations</h2></header>
+								<ul>
+									<li>In line with the objective of this project, which boils down to making accurate short-term predictions, models such as CNN + RNN that capture the temporal pattern (along with spatial features) come highly recommended. </li>
+									<li>However, as discussed in the previous slide, there could be time gaps in training data and in order to fill those gaps in time, GANs might come in handy and could act as a supplement to the training stages of the above model.</li>
+								</ul>	
+								<header><h2>Next Steps</h2></header>
+								<ul>
+									<li>Gain accessibility to diverse data - apart from meteorological data, geographic data, satellite image data, real-time sensor data could all help widen the scope of this project and aid in improving accuracy. </li>
+									<li>Explore GAN models further and see if we could incorporate audio data - for instance, whether we could predict the sound of thunder and rain and how that relates to the weather conditions</li>
+								</ul>								
+								<ul class="actions special">
+									<li><a href="https://github.com/GautamRAjit/ClimateWins" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>520 Parkside Drive<br />
+							Waterloo, ON N2L 5E3</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(647) 830-7463</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">gautamrjt@gmail.com</a></p>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

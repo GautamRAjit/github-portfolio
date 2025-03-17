@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GameCo : A Sales Study</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/gautam-radhakrishnan-ajit-617988100/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/GautamRAjit" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>GameCo : A Sales Study</h1>
+								</header>
+                                <h2>Overview</h2>
+                                <p>GameCo is a video game company and the goal is to analyze historical data and trends to make informed decisions on the marketing expenditure of the company in the year 2017. The data set has information on the various genres, platforms, publishers & regions, and an analysis on the consumer behavior is performed.</p>
+								<h2>Tools</h2>
+                                <p>This project was analyzed with the help of Microsoft Excel.</p>
+                                <header><h2>Dataset</h2></header>
+                                <p>The dataset outlines the sales of video game units across diverse Genres, Platforms, Years
+                                    (from 1980 to 2016) and Publishers across the globe (specifically North America, European
+                                    Union, Japan and Others). The sales are measured in millions. This dataset had to be
+                                    cleaned before further analysis could be conducted. This included removing rows where the
+                                    ‘Publisher’ information was missing and imputing blank cells in the sales columns with the
+                                    mean value of the respective columns. How sales vary in these geographic regions across
+                                    three characteristics, namely Genre & Platform are of particular interest. </p>
+                                <h2>Analysis</h2>
+                                <p>Firstly, a bird’s eye view of how the total sales performance across the different
+                                    regions vary with the help of a line chart.</p>
+                                <span class="image fit"><img src="images/sales1.PNG" alt="" /></span>
+                                <p>Based on the line graph above, we can see a decline in sales globally, plummeting from its
+                                    peak in late 2000s and reaching the lowest in the 21st century in 2016. This pattern holds
+                                    true for all regions, although Japan seems to have had a relatively consistent performance.
+                                    From this observation, we can see that there is a need for the marketing budget to be
+                                    distributed in such a manner as to maximise return on investment.</p>
+                                    <span class="image fit"><img src="images/sales2.PNG" alt="" /></span>    
+								<ul>
+									<li>Sales Forecasting Approach: Focus on 2016 sales data to predict sales for 2017 and beyond.</li>
+									<li>Data Filtering: Extract relevant data to analyze market share across regions.</li>
+									<li>Calculated Fields: Compute regional sales proportions by dividing regional sales by total global sales in 2016.</li>
+									<li>Key Insight: North America and the EU together account for 70% of total sales.</li>
+                                    <li>Strategic Consideration: Identifying high-performing game genres in underperforming regions could guide budget allocation to boost sales.</li>
+								</ul>
+                                <h3>Japan</h3>
+                                <span class="image fit"><img src="images/jp1.PNG" alt="" /></span> 						
+								<ul>
+									<li>Popular Genres in Japan: Role-Playing, Action, and Fighting games.</li>
+									<li>Marketing Strategy: Consider increasing promotion for these genres.</li>
+									<li>Sales Assumption: Higher game publication could lead to increased sales.</li>
+									<li>Focus on Market Share: Best-selling genres accounting for at least 70% of market share from 2000-2016.</li>
+                                    <li>Trend Analysis: Recent years provide a more accurate representation of market trends.</li>
+								</ul>
+                                <div class="row">
+									<div class="column">
+										<img src="images/jp2.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/jp3.PNG" style="width:100%">
+									</div>
+								</div>				
+                                <p>Scatterplots are good for detecting correlations, if any. Comparing the two scatterplots
+                                    side-by-side, we can see that although there is a disparity between the number of titles
+                                    published across the four genres considered and the sales figures. This could potentially
+                                    mean that customers are unaware of the new titles published. Stronger marketing
+                                    campaigns could boost sales. Therefore, promotion of these four best selling genre games in
+                                    Japan is something the marketing team could certainly look into.</p>	
+                                <h3>North America</h3>
+                                <span class="image fit"><img src="images/NA3.PNG" alt="" /></span> 				
+                                <div class="row">
+									<div class="column">
+										<img src="images/NA1.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/NA2.PNG" style="width:100%">
+									</div>
+								</div>	
+                                <ul>
+									<li>Top Genres in North America (2016): Shooter, Fighting, and Sports games account for 68% of total sales.</li>
+									<li>Market Pattern: Unlike Japan, NA shows a different sales trend.</li>
+									<li>Sales Trend: Despite fewer new titles since 2012, sales remained high (except in 2016).</li>
+									<li>Possible Market Saturation: High sales stability suggests a mature market for these genres.</li>
+                                    <li>Strategic Opportunity: Explore less-represented genres for potential revenue growth.</li>
+								</ul>
+                                <h3>European Union</h3>
+                                <span class="image fit"><img src="images/EU1.PNG" alt="" /></span> 				
+                                <div class="row">
+									<div class="column">
+										<img src="images/EU2.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/EU3.PNG" style="width:100%">
+									</div>
+								</div>
+                                <p>A similar story as was told in the case of NA can be told here. The grouping of genres is
+                                    slightly different. Here, to make up the 70% market share mark, a fourth genre has been
+                                    included in the grouping. Like in NA, EU also shows a state of saturation and the marketing
+                                    team could look into other less selling genres.</p>    
+
+                                <h2>Observations & Next Steps</h2>
+                                <p>Across the different regions, it can be observed that Shooting, Action & Fighting games
+                                    seem to be quite popular. Plotting a bar graph might help see patterns in the production of
+                                    these games across various platforms.</p>
+                                <span class="image fit"><img src="images/summary.PNG" alt="" /></span>
+                                <ul>
+									<li>Budget Limitation: Focus on maximizing return on investment (ROI).</li>
+									<li>Market Share Analysis: Prioritize best-selling genres (≥70% market share) by region.</li>
+									<li>Alternative Strategies: Expanding less popular genres could also drive revenue growth.</li>
+									<li>Platform Trends: Best-selling genres are still mostly on older consoles (PS2, PS3, X360).</li>
+                                    <li>Opportunity for Growth: Shifting focus to newer consoles (PS4, XOne, WiiU) could boost sales as old-gen consoles become obsolete.</li>
+								</ul>    							
+								<ul class="actions special">
+									<li><a href="https://github.com/GautamRAjit/GameCoAnalysis" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+							<head>
+								<style>
+								* {
+								  box-sizing: border-box;
+								}
+								
+								.column {
+								  float: left;
+								  width: 50%;
+								  padding: 5px;
+								}
+								
+								/* Clearfix (clear floats) */
+								.row::after {
+								  content: "";
+								  clear: both;
+								  display: table;
+								}
+								</style>
+								</head>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>520 Parkside Drive<br />
+							Waterloo, ON N2L 5E3</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(647) 830-7463</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">gautamrjt@gmail.com</a></p>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

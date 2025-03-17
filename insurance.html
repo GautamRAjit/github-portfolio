@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Life Insurance Risk Prediction using R</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/gautam-radhakrishnan-ajit-617988100/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/GautamRAjit" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<h1>Life Insurance Risk Prediction using R</h1>
+								</header>
+								<header><h2>Overview</h2></header>
+								<ul>
+									<li>Life insurance companies assess client risks to determine coverage and premiums.</li>
+									<li>They use classification systems to segment clients into different risk levels.</li>
+									<li>Risk assessment considers BMI, employment, medical history, insurance history, and family background.</li>
+									<li>Feature selection and PCA may be needed to reduce dimensionality for predictive modeling.</li>
+								</ul>							
+								<header><h2>DATASET DESCRIPTION</h2></header>
+								<p>This dataset belongs to the insurance company ‘Prudential’, made available on Kaggle. The
+									challenge here is to create predictive models to accurately classify the risks involved that
+									could help the company quote better prices to its new and existing customers. The predicting
+									power of the models created thereafter could help the company outline the importance of the
+									data points in a more efficient way, enabling them to streamline the process of issuing their services. The dataset consists of 59,381 rows and 128 columns. The dataset comprises of a mixture of data types - categorical (60 fields), continuous (13 fields) and discrete (5 fields). The medical keywords are dummy variables (48 fields). The response contains 8 risk levels, which are then mapped into 4 risk levels by combining every two consecutive levels into one.</p>
+									<div class="row">
+										<div class="column">
+											<img src="images/missing_val.PNG" style="width:100%">
+										</div>
+										<div class="column">
+										  <img src="images/resp_var.PNG" style="width:100%">
+										</div>
+									</div>								
+								<ul>
+									<li>As is represented by the bar graph above, the dataset is imperfect due to the presence of
+										missing values, with some fields like ‘Medical_History_32’ and ‘Medical_History_10’ having
+										more than 90% of the values were missing. Such fields would require pre-processing.</li>
+									<li>The response variables are not equally distributed in the train data, with risk levels ‘3’ and ‘4’
+										(Risk level ‘2’ after mapping) only representing 1.7% and 2.4% of the whole ‘response’
+										column respectively. This could affect the predictive power of the models when it comes to
+										predicting such levels on the test data (imbalanced classes).</li>
+								</ul>
+								<div class="row">
+									<div class="column">
+										<img src="images/norm_age1.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/norm_age2.PNG" style="width:100%">
+									</div>
+								</div>
+								<p>The plot on the left represents how BMI varies with age for level 1 (high risk) clients, and the
+									other plot represents the same for level 4 (low risk) clients. Although a substantial number of
+									clients have their BMIs closer to 0.5, level 1 clients have a more variance in the distribution
+									for all ages (0.25 to 0.9), and are hence classified as high risk, while level 4 clients have a
+									smaller variance (0.25 to 0.5), and hence poses less risk to the company. Note that higher
+									concentrations of data points are represented by lighter shades in both the plots.</p>
+									<p><span class="image left"><img src="images/dist_resp_age.PNG" alt="" /></span>The plot on the left indicates how the
+										clients are classified into the respective
+										levels with respect to the frequencies of
+										different ages. Youngsters are considered
+										to be less risky (more blue and less red),
+										whereas older clients are more risky (less
+										blue and more red). Hence, they are likely
+										to be classified as a level 1 or 2 while the
+										former as a level 3 or 4.</p><br>
+
+								<header><h2>FEATURE ENGINEERING AND DIMENSIONALITY REDUCTION</h2></header>
+								<p>The scope of feature engineering is limited on this dataset as most of the fields are either
+									masked or normalised at source. However, we were able to make use of the count of 48
+									medical keyword features, a set of binary valued features relating to the presence/absence of a
+									medical keyword being associated with each client (row). This is to explore whether a client
+									who is associated with a higher number of medical keywords is more likely to be classified
+									as “high” risk.</p>
+									<div class="row">
+										<div class="column">
+											<img src="images/PC1.PNG" style="width:100%">
+										</div>
+										<div class="column">
+										  <img src="images/PC2.PNG" style="width:100%">
+										</div>
+									</div>
+								<p>For reducing the dimensions, PCA was applied. It can be seen that the first 100 principal
+									components cumulatively captures 97% of the variance. However, PCA was not found to be
+									useful, with only a marginal improvement over what would be otherwise, and was thus
+									disregarded.</p>		
+									<p><span class="image left"><img src="images/PC3.PNG" alt="" /></span>Lasso regression was used to find the features having non-zero coefficients. Although there
+										was no improvement in the overall performance of logistic regression model, the cost of
+										computation was reduced by taking into account only 74 of the otherwise 123 features.</p><br>	
+								<header><h2>HYPER-PARAMETER TUNING ON CLASSIFICATION MODELS</h2></header>
+								<h3>Random Forest classifier</h3>
+								<p>The dataset has 122 features. By default, roughly 11 features would be used at each split for
+									making the tree. Maxnodes has also been restricted to a maximum of 20 in order to reduce
+									the cost of computation. The number of trees used is 5,10,15 and 20. Other than manual
+									tuning, mtry for each of these has been tuned using tuneRF() to reduce the out-of-bag error.</p>
+								<span class="image fit"><img src="images/rand_hyp.PNG" alt="" /></span>
+								<p>For instance, for 15 trees, the value of mtry that minimizes OOB error is 16.</p>
+								<h3>XGBoost</h3>
+								<p>By setting the maximum depth to 2 and keeping nrounds (300,500,1000) constant, the
+									parameters gamma (0,0.50,1) and eta (0.4,0.6,0.8,1) were tuned using GridSearch.</p>
+								<p><span class="image left"><img src="images/top10_features.PNG" alt="" /></span>The graph on the left is a representation of
+									the information gain for the top 10 features
+									that were found to be influential for making
+									key decisions by the XGBoost classifier,
+									after hyper-parameter tuning. It is worth
+									noting that height and age are among these
+									features. Lasso regression was performed and was used to model logistic regression. Although it
+									reduced the number of features to 74 and reduced the computation, there was no significant
+									improvement in the metrics.</p>
+								<header><h2>Evaluation</h2></header>
+								<p>The four models have been compared using AUC-ROC scores for each of the four levels,
+									the average AUC score, and the F1 scores.</p>
+								<h4>ROC Curves</h4>
+								<div class="row">
+									<div class="column">
+										<img src="images/LDA.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/LR.PNG" style="width:100%">
+									</div>
+								</div>
+								<div class="row">
+									<div class="column">
+										<img src="images/Random_Forest.PNG" style="width:100%">
+									</div>
+									<div class="column">
+									  <img src="images/XGBoost.PNG" style="width:100%">
+									</div>
+								</div>
+								
+								<div class="table-wrapper">
+									<table>
+										<thead>
+											<tr>
+												<th>Model</th>
+												<th>Average AUC</th>
+												<th>F1 Score</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>LDA</td>
+												<td>0.811</td>
+												<td>0.6214</td>
+											</tr>
+											<tr>
+												<td>Logistic Regression</td>
+												<td>0.808</td>
+												<td>0.6209</td>
+											</tr>
+											<tr>
+												<td>Random Forest</td>
+												<td>0.837</td>
+												<td>0.6648</td>
+											</tr>
+											<tr>
+												<td>XGBoost</td>
+												<td>0.810</td>
+												<td>0.6624</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<p>Random forest classifier performs the best overall with the highest AUC-ROC score (Horton,
+									2016). This was then followed by XGBoost. All the four models are relatively better at
+									classifying level 2 and level 4 clients (higher AUC scores). Level 4 showed high sensitivity,
+									probably because of a majority of the observations in the training set belonging to that level.</p>
+								<span class="image fit"><img src="images/eval_metrics.PNG" alt="" /></span>
+								<p>The above image represents the performance recorded by the evaluation metrics for each of
+									the models.</p>
+								<header><h2>CONCLUSION</h2></header>
+								<p>The insights gained from EDA indicate that the insurance policies for youngsters are less
+									risky for the companies as against to the aged people. Also, the BMI for the less risky clients
+									lie close to the general BMI while it has a high variance in case of more risky clients. The
+									classification models applied on the problem gave better performance for the Random
+									Forest and xGBoost as compared to Logistic Regression and LDA. Also, the dataset was
+									normalised at the source and during data pre-processing the feature selection using Lasso
+									Regression and Feature scaling using min-max scaler were not found to be of much help as
+									they were unable to enhance the performance of the models.</p>								
+								<ul class="actions special">
+									<li><a href="https://github.com/GautamRAjit/Life-insurance-risk-classification-using-R/tree/master" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+							<head>
+								<style>
+								* {
+								  box-sizing: border-box;
+								}
+								
+								.column {
+								  float: left;
+								  width: 50%;
+								  padding: 5px;
+								}
+								
+								/* Clearfix (clear floats) */
+								.row::after {
+								  content: "";
+								  clear: both;
+								  display: table;
+								}
+								</style>
+								</head>
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section class="split contact">
+						<section class="alt">
+							<h3>Address</h3>
+							<p>520 Parkside Drive<br />
+							Waterloo, ON N2L 5E3</p>
+						</section>
+						<section>
+							<h3>Phone</h3>
+							<p><a href="#">(647) 830-7463</a></p>
+						</section>
+						<section>
+							<h3>Email</h3>
+							<p><a href="#">gautamrjt@gmail.com</a></p>
+						</section>
+					</section>
+				</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
